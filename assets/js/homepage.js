@@ -1,3 +1,6 @@
+var userFormEl = document.querySelector("#user-form")
+var nameInputEl = document.querySelector("#username")
+
 var getUserRepos = function (user) {
     var apiUrl = "https://api.github.com/users/" + user + "/repos"
     
@@ -9,4 +12,9 @@ var getUserRepos = function (user) {
     console.log("outside")
 }
 
-getUserRepos()
+var formSubmitHandler = function(event){
+    event.preventDefualt()
+    console.log(event)
+}
+
+userFormEl.addEventListener("submit", formSubmitHandler)
